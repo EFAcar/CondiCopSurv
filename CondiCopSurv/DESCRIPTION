@@ -1,1 +1,20 @@
-
+Package: CondiCopSurv
+Type: Package
+Title: Conditional Copula Models for Right Censored Event Time Data
+Version: 1.0.9.9000
+Date: 2016-03-24
+Authors@R: c(person("Elif", "Acar", email = "elif.acar@umanitoba.ca", role = c("aut", "cre")),
+             person("Candida", "Geerdens", email = "candida.geerdens@uhasselt.be", role = "aut"))
+Maintainer: Elif Acar <elif.acar@umanitoba>
+Description: This package implements the local likelihood estimation of the
+    conditional copula parameter in conditional copula models for right censored
+    event time data. It also implements a generalized likelihood ratio test and
+    a bootstrap-based decision rule for testing the constancy of the conditional
+    copula parameter.
+Depends: R (>= 3.2.4),survival,VineCopula
+License: GPL-3
+NeedsCompilation: no
+RoxygenNote: 5.0.1
+Packaged: 2017-02-24 05:23:10 UTC; mlysy
+Author: Elif Acar [aut, cre],
+  Candida Geerdens [aut]
