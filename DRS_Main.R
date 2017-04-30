@@ -13,10 +13,6 @@
 # Load the R library: CondiCopSurv
 ######################################################
 
-# To _install_ package, set working directory to where file below is located and run the following command:
-# install.packages(pkgs = "CondiCopSurv_1.0.tar.gz",
-#                  repos = NULL, type = "source")
-
 
 library(CondiCopSurv)
 ## library(survival)
@@ -108,28 +104,21 @@ Tau.hat_NPMar.Clayton = VecBiCopPar2Tau(family=3, fit.NPMar.Clayton$par.alter.x)
 
 # Estimation Results under Clayton Copula:
 
-postscript("DRS_Clayton.eps", height=5.5,width=12.5,
-           horizontal = FALSE, onefile = FALSE, paper = "special", pointsize=12)
-
-ind = !is.na(match(x,seq(1,57,2)))
 par( mfrow=c(1,2), pin=c(1,1), mar = c(4, 4, 1.5, 0.5) + 0.1)  
-
 pcol= "black" ; npcol="black"
 
 plot(x,  Tau.hat_PMar.Clayton, type="l", col=pcol, ylim=c(0,1), lty=2, lwd=3.5, xlab= expression(x), ylab=expression(widehat(tau)(x)))
-#lines(fixed.pts, mean.tau.hat_PMar, col=pcol, lty=2, lwd=2)
-lines(x[ind], low.tau.hat_PMar[ind], col=pcol, lty=3, lwd=2.5)
-lines(x[ind], high.tau.hat_PMar[ind], col=pcol, lty=3, lwd=2.5)
+#lines(x, mean.tau.hat_PMar, col=pcol, lty=2, lwd=2)
+#lines(x, low.tau.hat_PMar, col=pcol, lty=3, lwd=2.5)
+#lines(x, high.tau.hat_PMar, col=pcol, lty=3, lwd=2.5)
 segments(x0=1, x1=58, y0=Tau.constant_PMar.Clayton, y1=Tau.constant_PMar.Clayton, col="gray65", lwd=2.5, lty=1)
 lines(x[ind], Tau.linear_PMar.Clayton[ind], col="gray65", lty=1, lwd=3)
 
-plot(x,  Tau.hat_NPMar.Clayton.x, type="l", col=npcol, ylim=c(0,1), lty=2, lwd=3.5, xlab= expression(x), ylab=expression(widetilde(tau)(x)))
-#lines(fixed.pts, mean.tau.hat_NPMar, col=npcol, lty=2, lwd=2)
-lines(x[ind], low.tau.hat_NPMar[ind], col=npcol, lty=3, lwd=2.5)
-lines(x[ind], high.tau.hat_NPMar[ind], col=npcol, lty=3, lwd=2.5)
+plot(x,  Tau.hat_NPMar.Clayton, type="l", col=npcol, ylim=c(0,1), lty=2, lwd=3.5, xlab= expression(x), ylab=expression(widetilde(tau)(x)))
+#lines(x, mean.tau.hat_NPMar, col=npcol, lty=2, lwd=2)
+#lines(x, low.tau.hat_NPMar, col=npcol, lty=3, lwd=2.5)
+#lines(x, high.tau.hat_NPMar, col=npcol, lty=3, lwd=2.5)
 segments(x0=1, x1=58, y0=Tau.constant_NPMar.Clayton, y1=Tau.constant_NPMar.Clayton, col="gray65", lwd=2.5, lty=1)
 lines(x[ind], Tau.linear_NPMar.Clayton[ind], col="gray65", lty=1, lwd=3)
 
-dev.off()
-quartz.options(reset = TRUE)
 
